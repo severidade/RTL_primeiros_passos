@@ -45,9 +45,12 @@ describe('Req 1 - Testes em App.js ', () => {
 
   test('Clicando em "Favoritados" verifica se abre a URL /favorites', () => {
     const { history } = renderWithRouter(<App />);
-    const favoritesPage = screen.getByRole('link', { name: /favorite pokémons/i });
+    // const favoritesPage = screen.getByRole('link', { name: /favorite pokémons/i });
+    // fireEvent.click(favoritesPage);
+    // expect(history.location.pathname).toBe('/favorites');
 
-    fireEvent.click(favoritesPage);
+    // Outra maneira de conseguir o mesmo resultado
+    history.push('/favorites');
     expect(history.location.pathname).toBe('/favorites');
   });
 });
