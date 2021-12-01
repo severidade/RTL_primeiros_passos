@@ -6,7 +6,7 @@ import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
 describe('Req 5 - Testes em Pokedex.js', () => {
-  test('Verifica se página contem h2 com texto Page requested not found 😭', () => {
+  test('Verifica se página contem h2 com texto "Encountered pokémons"', () => {
     renderWithRouter(<App />);
 
     const titlePokedex = screen.getByRole('heading',
