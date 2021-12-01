@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 // import { fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
-import FavoritePokemons from '../components/FavoritePokemons'; // posso pasar a rota completa
+import FavoritePokemons from '../components/FavoritePokemons'; // posso pasar
 import App from '../App';
 
 describe('Req 3 - Pokemons Favoritos ', () => {
