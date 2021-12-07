@@ -1,10 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import { fireEvent } from '@testing-library/dom';
-
-// import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
-// import Pokedex from '../components/Pokedex';
 import App from '../App';
 
 describe('Req 5 - Testes em Pokedex.js', () => {
