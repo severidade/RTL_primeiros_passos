@@ -49,18 +49,6 @@ describe('Req 5 - Testes em Pokedex.js', () => {
     expect(pokemonTestId.length).toBe(onePokemon);
   });
 
-  test('Verifica se há botão que lista Pokemons do tipo Fire', () => {
-    renderWithRouter(<App />);
-
-    const buttonFire = screen.getByRole('button', { name: /Fire/i });
-    expect(buttonFire).toBeInTheDocument();
-    expect(buttonFire.textContent).toBe('Fire');
-
-    fireEvent.click(buttonFire);
-    const charmander = screen.getByText(/Charmander/i);
-    expect(charmander).toBeInTheDocument();
-  });
-
   test('Vefirica se a Pokédex tem os 8 botões de filtro', () => {
     renderWithRouter(<App />);
     const buttonAll = screen.getByRole('button', { name: /All/i });
@@ -73,30 +61,18 @@ describe('Req 5 - Testes em Pokedex.js', () => {
     expect(buttonsWithTestId.length).toBe(totalButtonsWithTestId);
   });
 
-  // test('Verifica se o primeiro Pokemon e o Pikachu', () => {
-  //   renderWithRouter(<App />);
+  test('Vefirica se Pokédex tem um botão para resetar o filtro', () => {
+    renderWithRouter(<App />);
 
-  //   // Verifica se a imagem carregada é do Pikachu
-  //   const pikachuImg = screen.getByAltText(/Pikachu sprite/i);
-  //   expect(pikachuImg).toHaveAttribute('src', 'https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
-  // });
+    const isPikachuPokemon = screen.getByText(/pikachu/i);
+    const buttonAll = screen.getByRole('button', { name: /All/i });
 
-  // test('Verifica se o link de mais detalhes direciona para a rota certa', () => {
-  //   renderWithRouter(<App />);
-  //   // Carregando o Pikachu deve ir para a pagina correta
-  //   const pikachuDetails = screen.getByRole('link', { name: /more details/i });
-  //   expect(pikachuDetails.href).toEqual('http://localhost/pokemons/25');
-  // });
+    expect(buttonAll).toBeInTheDocument();
+    expect(buttonAll.textContent).toBe('All');
+    expect(isPikachuPokemon).toBeInTheDocument();
 
-  // test('Verifica se Alakazam é favoritado e o icone correto exibido', () => {
-  //   const { history } = renderWithRouter(<App />);
-  //   history.push('/pokemons/65');
+    fireEvent.click(buttonAll);
 
-  //   const favoriteBtn = screen.getByRole('checkbox', { name: /pokémon favoritado/i });
-  //   fireEvent.click(favoriteBtn);
-  //   expect(favoriteBtn).toBeChecked();
-
-  //   const favAlakazam = screen.getByAltText(/Alakazam is marked as favorite/i);
-  //   expect(favAlakazam.src).toEqual('http://localhost/star-icon.svg');
-  // });
+    expect(isPikachuPokemon).toBeInTheDocument();
+  });
 });
